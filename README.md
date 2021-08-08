@@ -1,3 +1,48 @@
+# CarND-Controls-PID-Project
+Udacity Self-Driving Car Engineer Nanodegree Program
+
+![Driving1](images/Capture 1 - PID all added.PNG)
+
+## Overview
+The project goal is to Build a PID controller and tune the PID hyper-parameters by applying the general processing flow as described in the lessons.
+
+### Dependencies
+* cmake >= 3.5
+* make >= 4.1
+* gcc/g++ >= 5.4
+* [uWebSockets](https://github.com/uWebSockets/uWebSockets)
+
+### Simulator
+You can download the [Simulator](https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2) which contains the Path Planning Project.
+Udacity provided Simulator.
+![Simulator](images/simulator.PNG)
+
+### Compilation
+#### The code compiles correctly.
+Code compiled without error.
+
+### Implementation
+After finished PID controller coding part, lots of simulation test drives done to find the proper parameters.
+
+* With the final PID parameters, the drive could not complete when I applied the P-term only. The car stuck while driving.
+  ![Failed](images/P only - fail.PNG)
+* The car was able to complete the track when I applied the PD term or, the PID term.
+* Applying PID term shows a better stability.
+
+## Reflection
+Udacity provided the base code without PID controller module and parameters. I added the PID controller logic and parameters in the [src/main.cpp](https://github.com/Hyun5/CarND-PID-Control-Project/blob/master/src/main.cpp), [src/PID.cpp](https://github.com/Hyun5/CarND-PID-Control-Project/blob/master/src/PID.cpp) and [src/PID.h](https://github.com/Hyun5/CarND-PID-Control-Project/blob/master/src/PID.h).
+
+* The effect each of the P, I, D components had in your implementation.
+When I enlarged P-term or D-term, the handle angle correction value was over-shooted, and the car could not complete the track. But, the car was able to finish the track after I applied the PD term. And it showed better control with applied all PID term. To see the effect of 3 parameter, I run the car with applied P-term only, PD-term only and all PID. You can check the video in [this link](https://www.youtube.com/watch?v=N2uGhe05O3U)
+
+* How the final hyper-parameters were chosen.
+The most important parameter seems the P-term. I tried several P-term values and found the proper value which did not give any over-shooted handling. After fixing P-term, I also found a D-term and I-term parameter from several trial and error driving.
+Those were chosen for the simulation track. It might be modified for other track if those are different shape.
+  ![Completed](images/PID term.PNG)
+
+---
+# Below is the original Readme from Udacity 
+
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
