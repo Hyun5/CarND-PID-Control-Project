@@ -35,6 +35,7 @@ After finished PID controller coding part, lots of simulation test drives done t
 * Applying all the PID term showed a better stability.
 
 
+
 ## Reflection
 Udacity provided the base code without PID controller module and parameters. I added the PID controller logic and parameters in the [src/main.cpp](https://github.com/Hyun5/CarND-PID-Control-Project/blob/master/src/main.cpp), [src/PID.cpp](https://github.com/Hyun5/CarND-PID-Control-Project/blob/master/src/PID.cpp) and [src/PID.h](https://github.com/Hyun5/CarND-PID-Control-Project/blob/master/src/PID.h).
 
@@ -45,7 +46,7 @@ Udacity provided the base code without PID controller module and parameters. I a
 * How the final hyper-parameters were chosen.
 
   The most important parameter seems the P-term. I tried several P-term values and found the proper value which did not give any over-shooted handling. After fixing P-term, I also found a D-term and I-term parameter from several trial and error driving.
-  Those were chosen for the simulation track. It might be modified for other track if those are different shape.
+  The 3 parameters I chosen were for the simulation track. It might be modified for other track if those are different shape.
   ![Completed](images/PID_term.PNG)
 
 
