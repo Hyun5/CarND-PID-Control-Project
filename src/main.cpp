@@ -38,7 +38,7 @@ int main() {
   /**
    * TODO: Initialize the pid variable.
    */
-   pid.Init(0.13,0.00,1.0);
+   pid.Init(0.025,0.0055,3.00);
    speed_pid.Init(0.1,0.002,0.0);
 
   h.onMessage([&pid, &speed_pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
@@ -69,14 +69,14 @@ int main() {
            */
            pid.UpdateError(cte);
            steer_value = pid.TotalError();
-           if(steer_value < -1.0) steer_value = -1.0;
-           if(steer_value > 1.0) steer_value = 1.0;
+           if (steer_value < -1.0) steer_value = -1.0;
+           if (steer_value > 1.0) steer_value = 1.0;
            double des_speed = 30;
            double err_speed = speed - des_speed;
            speed_pid.UpdateError(err_speed);
            throttle_value = speed_pid.TotalError();
-           if(throttle_value < -1.0) throttle_value = -1.0;
-           if(throttle_value > 1.0) throttle_value = 1.0;
+           if (throttle_value < -1.0) throttle_value = -1.0;
+           if (throttle_value > 1.0) throttle_value = 1.0;
 
           
           // DEBUG

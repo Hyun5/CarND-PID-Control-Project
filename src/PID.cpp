@@ -15,11 +15,11 @@ void PID::Init(double Kp_, double Ki_, double Kd_) {
   /**
    * TODO: Initialize PID coefficients (and errors, if needed)
    */
-   Kp = Kp_;
-   Ki = Ki_;
-   Kd = Kd_;
+  Kp = Kp_;
+  Ki = Ki_;
+  Kd = Kd_;
 
-   iter = 0;
+  iter = 0;
 
 }
 
@@ -27,10 +27,10 @@ void PID::UpdateError(double cte) {
   /**
    * TODO: Update PID errors based on cte.
    */
-   p_error = cte;
-   d_error = cte-p_error;
-   i_error += cte;
-   iter += 1;
+  d_error = cte-p_error;
+  p_error = cte;
+  i_error += cte;
+  iter += 1;
 
 }
 
